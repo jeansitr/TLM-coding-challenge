@@ -1,5 +1,7 @@
-# TLM Coding challenge
+# Jean-Simon's entry in TLM Coding challenge
 (inspired by: https://github.com/coveo/backend-coding-challenge)
+
+## Usage
 
 ## Requirements
 
