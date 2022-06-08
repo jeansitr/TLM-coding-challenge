@@ -1,10 +1,12 @@
 html, body{
     height: 100%;
+    background-color: lightgray !important;
 }
 
 input{
     width: 100%;
     margin-top: 10px!important;
+    border-radius: 5px;
 }
 
 #center-box{
@@ -14,5 +16,18 @@ input{
 }
 
 #ninjify-box{
-    border: 1px solid black;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+#ninjifybtn{
+    transition: all .2s ease-in-out;
+}
+
+#ninjifybtn:hover{
+    background-color: grey;
+}
+
+.instruction{
+    font-size: 1.25rem;
 }

@@ -46,13 +46,13 @@ def init_db_command():
 
     #Creating words in database
     for w in words:
-        Word.create(word=w)
+        Word.create(word=w.lower())
 
     #creating buzzwords and associating 5 random words to it
     ind = 1
     for bw in buzzwords:
 
-        Buzzword.create(buzzword=bw)
+        Buzzword.create(buzzword=bw.lower())
 
         #chooses 5 words to associate to the buzzword
         chosen = []
@@ -69,7 +69,7 @@ def init_db_command():
 
         ind += 1
 
-    click.echo("database Initialized.")
+    click.echo("Database initialized.")
 
 def init_app(app):
     app.cli.add_command(init_db_command)
