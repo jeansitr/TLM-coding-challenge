@@ -1,17 +1,35 @@
 import random
 
 from jsninjify.models import Buzzword, Descriptive, Word
-from flask import Response, current_app as app, render_template, request, json
+from flask import Response, current_app as app, render_template, request, json, send_from_directory
 
 @app.route('/', methods=['GET'])
 def index():
     return render_template('index.html')
 
+@app.route('/secret', methods=['GET'])
+def secret_get():
+    code = request.args.get('code')
+
+    if not code:
+        return render_template('secret.html', code = False)
+
+    else:
+        code = code.lower()
+        print(code)
+        if code == "↑↑↓↓←→←→ba":
+            return send_from_directory(app.config['UPLOAD_FOLDER'], "secret")
+        else:
+            return render_template('secret.html', code = True)
+
+
+########## API ##########
 @app.route('/ninjify', methods=['GET'])
 def ninji_get():
     buzzwords = request.args.get('x')
     
     if (buzzwords):
+        buzzwords = buzzwords.lower()
         if not (";" and "--") in buzzwords:
             #select words assiated to buzwords
             descriptive = list(Buzzword

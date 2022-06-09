@@ -26,6 +26,12 @@ $(document).ready(function(){
         $("#buzzwords").val("");
     });
 
+    $('#buzzwords').keyup(function (e) {
+        if (e.keyCode === 13) {
+            $(".ninjifybtn").trigger("click");
+        }
+    });
+
     function toggleNinjifyBox(){
         $(".ninjify-box").each(function(i, box){ 
             let $box = $(box);
