@@ -11,20 +11,47 @@
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='image/shuriken.png') }}">
 </head>
 <body>
-    <div class="container-fluid h-100 d-flex align-items-center justify-content-center">
+    <div class="container h-100 d-flex align-items-center justify-content-center">
         <div id="center-box">
             <div class="row">
-                <div id="ninjify-box" class="col-lg-6 offset-lg-3 col-10 offset-1 align-self-center">
+                <div class="ninjify-box" class="col-lg-6 offset-lg-3 col-10 offset-1 align-self-center">
                     <div class="row">
                         <div class="col-12">
-                            <h1>Welcome to JS-Ninjify!</h1>
+                            <h2>Welcome to JS-Ninjify!</h2>
                             <p class="instruction">Enter technology buzzwords to Ninjify them and generate you own personnal ninja name!</p>
                         </div>
                         <div class="col-lg-8 col-12">
                             <input id="buzzwords" name="buzzwords" type="text" placeholder="Enter buzzwords here (Ex: html,css)" />
                         </div>
                         <div class="col-lg-4 col-12">
-                            <input id="ninjifybtn" type="button" value="Ninjify"/>
+                            <input class="ninjifybtn" type="button" value="Ninjify"/>
+                        </div>
+                    </div>
+                    <br />
+                </div>
+                <div class="col-lg-3 col-1"></div>
+            </div>
+            <div class="row">
+                <div id="ninjanamebox" class="ninjify-box hidden" class="col-lg-6 offset-lg-3 col-10 offset-1 align-self-center">
+                <!--
+                    <div class="row">
+                        <div class="col-2 shurikenimgbox"><img class="shuriken" src="{{ url_for('static', filename='image/shuriken.png') }}"/></div>
+                        <div class="col-2 imgbox"><img class="kunai" src="{{ url_for('static', filename='image/kunai.png') }}"/></div>
+                        <div class="col-4 imgbox"><img src="{{ url_for('static', filename='image/joyeux-ninja.png') }}"/></div>
+                        <div class="col-2 imgbox"><img class="kunai" src="{{ url_for('static', filename='image/kunai.png') }}"/></div>
+                        <div class="col-2 shurikenimgbox"><img class="shuriken" src="{{ url_for('static', filename='image/shuriken.png') }}"/></div>
+                    </div>
+                -->
+                    <div class="row">
+                        <div class="col-12">
+                            <h3>Here's your ninja name !</h3>
+                            <h2 id="ninjaname"></h2>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <input class="ninjifybtn" type="button" value="Re-ninjify"/>
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <input id="resetbtn" type="button" value="Reset"/>
                         </div>
                     </div>
                     <br />

@@ -9,25 +9,71 @@ input{
     border-radius: 5px;
 }
 
+img{
+    max-height: 200px;
+    max-width: 100px;
+}
+
 #center-box{
     text-align: center;
     margin: auto;
     width: 100%;
 }
 
-#ninjify-box{
+.ninjify-box{
     border: 2px solid black;
     border-radius: 5px;
 }
 
-#ninjifybtn{
+#resetbtn{
     transition: all .2s ease-in-out;
 }
 
-#ninjifybtn:hover{
+#resetbtn:hover{
+    background-color: red;
+}
+
+.imgbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kunai{
+    transform: rotate(-90deg);
+}
+
+.ninjifybtn, #resetbtn{
+    transition: all .2s ease-in-out;
+}
+
+.ninjifybtn:hover{
     background-color: grey;
 }
 
-.instruction{
-    font-size: 1.25rem;
+#ninjaname{
+    font-weight: 900;
+}
+
+.hidden{
+    display: none;
+}
+
+.shuriken{
+    animation: rotation .5s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.shurikenimgbox{
+    display: flex;
+    justify-content: center;
+    align-items: end;
 }
