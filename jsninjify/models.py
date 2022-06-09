@@ -45,15 +45,14 @@ def init_db_command():
         words = data["words"]
 
     #Creating words in database
-    for w in words:
-        Word.create(word=w.lower())
+    Word.insert_many(words).execute()
 
-    #creating buzzwords and associating 5 random words to it
+    #creating buzzwords and associating 5 random words to it 
+    Buzzword.insert_many(buzzwords).execute()
+    
+    tocreate = []
     ind = 1
     for bw in buzzwords:
-
-        Buzzword.create(buzzword=bw.lower())
-
         #chooses 5 words to associate to the buzzword
         chosen = []
         for i in range(5):
@@ -63,11 +62,13 @@ def init_db_command():
             while wordID in chosen:
                 wordID = random.randrange(1, len(words) + 1)
             
-            Descriptive.create(buzzword_id = ind, word_id = wordID)
+            tocreate.append({"buzzword_id" : ind, "word_id" : wordID})
             
             chosen.append(wordID)
 
         ind += 1
+
+    Descriptive.insert_many(tocreate).execute()
 
     click.echo("Database initialized.")
 
