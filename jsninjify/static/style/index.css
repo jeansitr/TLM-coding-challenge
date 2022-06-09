@@ -1,6 +1,6 @@
 html, body{
     height: 100%;
-    background-color: lightgray !important;
+    background-color: #564a95 !important;
 }
 
 input{
@@ -12,6 +12,7 @@ input{
 img{
     max-height: 200px;
     max-width: 100px;
+    margin-bottom: 10px;
 }
 
 #center-box{
@@ -21,6 +22,9 @@ img{
 }
 
 .ninjify-box{
+    background-color: slategray;
+    color: white;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     border: 2px solid black;
     border-radius: 5px;
 }
@@ -36,11 +40,13 @@ img{
 .imgbox{
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: end;
+    height: 0;
 }
 
 .kunai{
-    transform: rotate(-90deg);
+    transform: rotate(-55deg);
+    margin-bottom: 40px;
 }
 
 .ninjifybtn, #resetbtn{
@@ -61,6 +67,7 @@ img{
 
 .shuriken{
     animation: rotation .5s infinite linear;
+    margin-bottom: 0;
 }
 
 @keyframes rotation {
@@ -70,10 +77,4 @@ img{
     to {
         transform: rotate(360deg);
     }
-}
-
-.shurikenimgbox{
-    display: flex;
-    justify-content: center;
-    align-items: end;
 }
