@@ -7,6 +7,7 @@ input{
     width: 100%;
     margin-top: 10px!important;
     border-radius: 5px;
+    border: 2px solid black;
 }
 
 img{
@@ -51,6 +52,8 @@ img{
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     border: 2px solid black;
     border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 10px;
 }
 
 .ninjifybtn, #resetbtn{
