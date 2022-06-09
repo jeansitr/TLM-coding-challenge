@@ -4,7 +4,8 @@ volumes:
   volume-postgres:
     
 services:
-  db:
+  jsninjify-db:
+    container_name: jsninjify-db
     image: postgres:12-alpine
     ports:
       - 5432:5432
@@ -15,13 +16,13 @@ services:
       POSTGRES_PASSWORD: ThisBePassword
       POSTGRES_DB: jsninjify
     
-  ninjify-api:
+  jsninjify-api:
     build: .
-    container_name: ninjify-API
+    container_name: jsninjify-api
     depends_on:
-      - db
+      - jsninjify-db
     links:
-      - db
+      - jsninjify-db
     ports:
       - "5000:5000"
     environment:

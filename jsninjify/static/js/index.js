@@ -2,7 +2,7 @@ $(document).ready(function(){
 
     $("#ninjifybtn").click(function() {
 
-        let buzzwords = ($("#buzzwords").val()).toLowerCase()
+        let buzzwords = ($("#buzzwords").val()).toLowerCase().replaceAll(" ", ",")
 
         $.ajax({
             url: "/ninjify",
