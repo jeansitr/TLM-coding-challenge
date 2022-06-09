@@ -34,6 +34,16 @@ img{
     background-color: red;
 }
 
+.errorbox{
+    height: 0;
+    overflow-y: hidden;
+    transition: height 1s linear;
+}
+
+.error{
+    height: auto !important;
+}
+
 .errorlbl{
     background-color: lightcoral;
     border: 2px solid red;

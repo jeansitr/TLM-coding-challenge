@@ -10,12 +10,17 @@ $(document).ready(function(){
             data: { x: buzzwords },
             dataType: 'json',
             success: function(data) {
-                if ($("#ninjanamebox").hasClass("hidden"))
-                    toggleNinjifyBox();
-                $("#ninjaname").text(data.ninjaname);
+                if (data.ninjaname){
+                    if ($("#ninjanamebox").hasClass("hidden"))
+                        toggleNinjifyBox();
+
+                    $("#ninjaname").text(data.ninjaname);
+                    $(".errorbox").removeClass("error");
+                }
             },
             error: function(data){
-                console.log(data.responseText);
+                $(".errorbox").addClass("error");
+                $(".errorlbl").text("An error has occured: " + data.responseText);
             }
         });
     });
