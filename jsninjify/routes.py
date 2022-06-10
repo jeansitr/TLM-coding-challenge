@@ -17,7 +17,7 @@ def secret_get():
     else:
         code = code.lower()
         print(code)
-        if code == "↑↑↓↓←→←→ba":
+        if code == "↑↑↓↓←→←→ba" or code == "upupdowndownleftrightleftrightba" or code == "hauthautbasbasgauchedroitegauchedroiteba":
             return send_from_directory(app.config['UPLOAD_FOLDER'], "secret")
         else:
             return render_template('secret.html', code = True)
@@ -30,7 +30,7 @@ def ninji_get():
     
     if (buzzwords):
         buzzwords = buzzwords.lower()
-        if not (";" and "--") in buzzwords:
+        if not ";" in buzzwords and not "--" in buzzwords:
             #select words assiated to buzwords
             descriptive = list(Buzzword
                     .select(Word.word).distinct()
