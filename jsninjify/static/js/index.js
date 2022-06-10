@@ -20,7 +20,7 @@ $(document).ready(function(){
             },
             error: function(data){
                 $(".errorbox").addClass("error");
-                $(".errorlbl").text("An error has occured: " + data.responseText);
+                $(".errorlbl").text("An error has occured: " + data.responseJSON.error);
             }
         });
     });

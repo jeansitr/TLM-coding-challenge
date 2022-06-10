@@ -1,5 +1,4 @@
-from flask import Flask, app, jsonify, redirect, request
-from flask.wrappers import Response
+from flask import Flask
 from jsninjify.models import init_app
 
 def create_app(initial_config=None):

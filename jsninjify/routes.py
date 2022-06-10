@@ -33,7 +33,7 @@ def ninji_get():
         if not (";" and "--") in buzzwords:
             #select words assiated to buzwords
             descriptive = list(Buzzword
-                    .select(Buzzword.buzzword, Word.word)
+                    .select(Word.word).distinct()
                     .join(Descriptive)
                     .join(Word)
                     .where(Buzzword.buzzword << buzzwords.split(","))
@@ -41,33 +41,37 @@ def ninji_get():
 
             #if none found
             if len(descriptive) == 0:
-                response = Response(status=400, content_type="text/plain;charset=UTF-8", response="Buzzwords not found.")
+                response = Response(status=400, content_type="application/json", response=json.dumps({ "error": "Buzzwords not found." }))
             else:
                 ninjaName = ""
                 
                 #select up to 4 words out of the ones that were found
-                for i in range(random.randrange(1, 4)):
-                    chosen = descriptive[random.randrange(1,len(descriptive))]["word"]
+                previouslyChosen = []
+                for i in range(random.randrange(1, 3)):
+                    chosen = descriptive[random.randrange(len(descriptive))]["word"]
 
-                    if chosen not in ninjaName:
-                        ninjaName += chosen + " "
+                    while chosen in previouslyChosen:
+                        chosen = descriptive[random.randrange(len(descriptive))]["word"]
+
+                    ninjaName += chosen + " "
+                    previouslyChosen.append(chosen)
 
                 response = Response(status=200, content_type="application/json", response=json.dumps({ "ninjaname" : ninjaName}))
         else:
-            response = Response(status=403, content_type="text/plain;charset=UTF-8", response="No injections here.")
+            response = Response(status=403, content_type="application/json", response=json.dumps({ "error": "No injections here."}))
     else:
-        response = Response(status=400, content_type="text/plain;charset=UTF-8", response="Missing Buzzwords.")
+        response = Response(status=400, content_type="application/json", response=json.dumps({ "error": "Missing Buzzwords."}))
 
     return response
 
 @app.route('/ninjify', methods=['POST'])
 def ninji_post():
-    return Response(status=501, content_type="text/plain;charset=UTF-8", response="Can't add yet.")
+    return Response(status=501, content_type="application/json", response=json.dumps({ "error": "Can't add yet."}))
 
 @app.route('/ninjify', methods=['PUT'])
 def ninji_put():
-    return Response(status=501, content_type="text/plain;charset=UTF-8", response="Can't update yet.")
+    return Response(status=501, content_type="application/json", response=json.dumps({ "error": "Can't update yet."}))
 
 @app.route('/ninjify', methods=['DELETE'])
 def ninji_del():
-    return Response(status=501, content_type="text/plain;charset=UTF-8", response="Can't remove yet.")
+    return Response(status=501, content_type="application/json", response=json.dumps({ "error": "Can't remove yet."}))

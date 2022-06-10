@@ -2,6 +2,15 @@
 (inspired by: https://github.com/coveo/backend-coding-challenge)
 
 ## Usage
+To start ninjifying:
+- Clone the project: git clone https://github.com/jeansitr/TLM-coding-challenge.git
+- From inside the project folder (cd TLM-coding-challenge), initialize the dockers: docker-compose up
+- Once the initialization is done, enter the jsninjify-api docker container's cli and enter flask init-db
+- When you see "Database initialized!", you can close this and start ninjifying buzzwords! (in web browser: 127.0.0.1:5000)
+
+To execute tests:
+- Execute pip install pytest (Assuming you already have python installed)
+- Once it's done installing from inside the porject folder, execute python -m pytest
 
 ## Requirements
 
