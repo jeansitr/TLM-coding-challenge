@@ -9,9 +9,10 @@ To start ninjifying:
 - When you see "Database initialized!", you can close this and start ninjifying buzzwords! (in web browser: 127.0.0.1:5000)
 
 To execute tests:
-- Execute pip install pytest (Assuming you already have python installed)
-- Once it's done installing from inside the porject folder, execute python -m pytest
+- Execute in cmd pip install -r requirements.txt (Assuming you already have python installed)
+- with the dockers running, from inside the project folder, execute pytest
 
+Keep an eye out for the ultimate ninjas hidden secret ;)
 ## Requirements
 
 ### Backend
